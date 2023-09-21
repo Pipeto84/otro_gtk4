@@ -5,97 +5,91 @@
     <property name="default_width">650</property>
     <property name="default_height">550</property>
     <property name="content">
-      <object class="GtkScrolledWindow" >
-        <property name="hscrollbar-policy">never</property>
-        <property name="min-content-height">360</property>
-        <property name="vexpand">true</property>
-        <property name="child">
-          <object class="AdwLeaflet" id="leaflet">
-            <property name="can-navigate-back">true</property>
+      <object class="AdwLeaflet" id="leaflet">
+        <property name="can-navigate-back">true</property>
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <property name="width-request">200</property>
             <child>
-              <object class="GtkBox">
-                <property name="orientation">vertical</property>
-                <property name="width-request">200</property>
-                <child>
-                  <object class="AdwHeaderBar">
-                    <binding name="show-end-title-buttons">
+              <object class="AdwHeaderBar">
+                <binding name="show-end-title-buttons">
+                  <lookup name="folded">leaflet</lookup>
+                </binding>
+                <child type="start">
+                  <object class="GtkButton" id="boton">
+                    <property name="tooltip-text" translatable="yes">Back</property>
+                    <property name="label">x</property>
+                    <property name="action-name">win.pipe</property>
+                    <binding name="visible">
                       <lookup name="folded">leaflet</lookup>
                     </binding>
-                    <child type="start">
-                      <object class="GtkButton" id="boton">
-                        <property name="tooltip-text" translatable="yes">Back</property>
-                        <property name="label">x</property>
-                        <property name="action-name">win.pipe</property>
-                        <binding name="visible">
-                          <lookup name="folded">leaflet</lookup>
-                        </binding>
-                      </object>
-                    </child>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkScrolledWindow">
-                    <property name="vexpand">true</property>
-                    <child>
-                      <object class="GtkListBox" id="collections_list">
-                        <style>
-                          <class name="navigation-sidebar"/>
-                        </style>
-                      </object>
-                    </child>
                   </object>
                 </child>
               </object>
             </child>
             <child>
-              <object class="AdwLeafletPage">
-                <property name="navigatable">false</property>
-                <property name="child">
-                  <object class="GtkSeparator"/>
-                </property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkBox">
-                <property name="orientation">vertical</property>
-                <property name="hexpand">True</property>
-                <property name="width-request">250</property>
+              <object class="GtkScrolledWindow">
+                <property name="vexpand">true</property>
                 <child>
-                  <object class="AdwHeaderBar">
-                    <property name="title-widget">
-                      <object class="AdwWindowTitle"/>
-                    </property>
+                  <object class="GtkListBox" id="collections_list">
+                    <style>
+                      <class name="navigation-sidebar"/>
+                    </style>
                   </object>
-                </child>
-                <child>
-                  <object class="AdwClamp">
-                    <property name="child">
-                      <object class="GtkBox">
-                        <property name="orientation">vertical</property>
-                        <property name="margin-top">12</property>
-                        <property name="margin-bottom">12</property>
-                        <property name="margin-start">12</property>
-                        <property name="margin-end">12</property>  
-                        <property name="spacing">12</property>
-                        <child>
-                          <object class="GtkListBox" id="lista">
-                            <property name="valign">center</property>
-                            <property name="visible">False</property>
-                            <property name="selection-mode">none</property>
-                            <style>
-                              <class name="boxed-list"/>                            
-                            </style>
-                          </object>                
-                        </child>
-                      </object>            
-                    </property>
-                  </object>                  
                 </child>
               </object>
             </child>
           </object>
-        </property>
-      </object>    
+        </child>
+        <child>
+          <object class="AdwLeafletPage">
+            <property name="navigatable">false</property>
+            <property name="child">
+              <object class="GtkSeparator"/>
+            </property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <property name="hexpand">True</property>
+            <property name="width-request">250</property>
+            <child>
+              <object class="AdwHeaderBar">
+                <property name="title-widget">
+                  <object class="AdwWindowTitle"/>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkScrolledWindow">
+                <property name="hscrollbar-policy">never</property>
+                <property name="min-content-height">360</property>
+                <property name="vexpand">true</property>                    
+                <child>
+                  <object class="AdwClamp">
+                    <property name="child">
+                      <object class="GtkListBox" id="lista">
+                        <property name="valign">center</property>
+                        <property name="visible">False</property>
+                        <property name="selection-mode">none</property>
+                        <property name="margin-top">12</property>
+                        <property name="margin-bottom">12</property>
+                        <property name="margin-start">12</property>
+                        <property name="margin-end">12</property>  
+                        <style>
+                          <class name="boxed-list"/>                            
+                        </style>
+                      </object>                
+                    </property>
+                  </object>            
+                </child>
+              </object>                  
+            </child>
+          </object>
+        </child>
+      </object>
     </property>
   </template>
 </interface>
